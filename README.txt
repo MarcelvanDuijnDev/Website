@@ -1,1 +1,1 @@
-https://marcelvanduijndev.github.io/MarcelvanDuijn.github.io/
+https://marcelvanduijndev.github.io/Website/
