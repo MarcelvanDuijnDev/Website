@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Additional styles for the About Me page */
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+        .terminal-container {
+            background-color: #1c1c1c; /* Dark gray background color */
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-sizing: border-box;
+            display: flex; /* Added */
+            align-items: center; /* Added */
+        }
+        .terminal-title {
+            font-size: 18px;
+            color: #00ff00; /* Green text color */
+        }
+        .terminal-text {
+            color: #00ff00; /* Green text color */
+        }
+        .about-image {
+            max-width: 200px; /* Updated */
+            border-radius: 5px;
+            margin-right: 20px; /* Added */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="about-container">
+            <div class="terminal-container">
+                <img src="images/MarcelvanDuijn.jpeg" alt="Profile Picture" class="about-image"> <!-- Moved image before the text -->
+                <div> <!-- Added container for text -->
+                    <h2 class="terminal-title">Info about me:</h2>
+                    <p class="terminal-text">Name: Marcel van Duijn</p>
+                    <p class="terminal-text">Age: 23</p>
+                    <p class="terminal-text">I am currently working on releasing a game on Steam called <a href="https://store.steampowered.com/app/2257800/Cannon_Climbing/" target="_blank">Cannon Climbing.</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 MarcelvanDuijnDev. All rights reserved. | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank"> GitHub </a>, Thank you for visiting!</p>
+    </footer>
+</body>
+</html>
