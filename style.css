@@ -148,6 +148,10 @@ body, h1, h2, h3, p {
      border-radius: 5px;
      margin-right: 20px;
 }
+ .divider-image {
+     max-width: 100%;
+     width: 100%;
+}
  .about-image {
      max-width: 25%;
      border-radius: 5px;
@@ -193,7 +197,6 @@ body, h1, h2, h3, p {
     max-width: 100%;
     padding-top: 56.25%;
 }
-
 .video-iframe {
     position: absolute;
     top: 0;
@@ -217,4 +220,20 @@ body, h1, h2, h3, p {
 }
 .social-media-container img:hover {
     opacity: 1;
+}
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.list li:before {
+  content: "* ";
+  color: #00ff00;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.list li {
+  color: #00ff00;
+  font-size: 16px;
+  margin-right: 10px;
 }
