@@ -321,3 +321,17 @@ footer {
     font-size: 16px;
     margin-right: 10px;
 }
+
+/* Effects */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fade-in 0.5s ease-in-out;
+}
