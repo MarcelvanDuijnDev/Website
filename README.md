@@ -1,1 +1,1 @@
-<a href="https://marcelvanduijndev.github.io/Website/">https://marcelvanduijndev.github.io/Website/</a>
+<a href="https://marcelvanduijn.com">https://marcelvanduijn.com</a>
