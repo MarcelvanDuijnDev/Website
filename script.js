@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const moneyPerSecondElement = document.getElementById("moneyPerSecond");
     const earnMoneyButton = document.getElementById("earnMoneyButton");
     const buyWorkerButton = document.getElementById("buyWorkerButton");
+    const workersElement = document.getElementById("workers");
 
     function saveGame() {
         localStorage.setItem("money", money);
@@ -17,7 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
     function loadGame() {
         moneyElement.textContent = money.toFixed(2);
         moneyPerSecondElement.textContent = moneyPerSecond.toFixed(2);
+        workersElement.textContent = workers.toFixed(0);
     }
+
+    function resetGame() {
+        money = 0;
+        workers = 0;
+        moneyPerSecond = 0;
+    }
+
+    resetGameButton.addEventListener("click", function() {
+        resetGame();
+    })
 
     earnMoneyButton.addEventListener("click", function() {
         money += 1;
@@ -29,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (money >= 10) {
             money -= 10;
             workers += 1;
-            moneyPerSecond += 1;
             updateMoneyDisplay();
             updateMoneyPerSecondDisplay();
             saveGame();
@@ -43,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function updateMoneyPerSecondDisplay() {
+        moneyPerSecond = 0;
+        moneyPerSecond += workers * 1;
+        workersElement.textContent = workers.toFixed(0);
         moneyPerSecondElement.textContent = moneyPerSecond.toFixed(2);
     }
 
