@@ -25,7 +25,7 @@ section {
 
 h1 {
     font-size: 24px;
-    color: #00ff00;
+    color: #00cc66;
 }
 
 /* Navigation styles */
@@ -42,11 +42,11 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #00ff00;
+  color: #00cc66;
   text-decoration: none;
   display: inline-block;
   padding: 10px;
-  border: 1px solid #00ff00;
+  border: 1px solid #00cc66;
   border-radius: 5px;
 }
 
@@ -69,7 +69,7 @@ nav .dropdown li {
 
 nav .dropdown li a {
   padding: 8px 15px;
-  color: #00ff00;
+  color: #00cc66;
   text-decoration: none;
   background-color: #000000;
   white-space: nowrap;
@@ -96,7 +96,7 @@ a:hover {
 }
 
 .back-button a {
-    color: #00ff00;
+    color: #00cc66;
 }
 
 .back-button a:hover {
@@ -108,7 +108,7 @@ a:hover {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: transparent;
-    color: #00ff00;
+    color: #00cc66;
     text-decoration: none;
     border: none;
     border-radius: 5px;
@@ -120,7 +120,7 @@ a:hover {
 
 .cta-button:hover {
     background-color: #007f00;
-    color: #00ff00;
+    color: #00cc66;
 }
 
 /* Homepage section styles */
@@ -129,7 +129,6 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
     margin-top: 30px;
     background-color: #000;
     border-radius: 5px;
@@ -140,7 +139,7 @@ a:hover {
 .homepage-title {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #00ff00;
+    color: #00cc66;
 }
 
 .homepage-image {
@@ -161,7 +160,7 @@ a:hover {
 /* Footer styles*/
 footer {
     background-color: #000;
-    color: #00ff00;
+    color: #00cc66;
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;
@@ -205,11 +204,11 @@ footer {
 
 .terminal-title {
     font-size: 18px;
-    color: #00ff00;
+    color: #00cc66;
 }
 
 .terminal-text {
-    color: #00ff00;
+    color: #00cc66;
 }
 
 .terminal-container>* {
@@ -259,7 +258,7 @@ footer {
 }
 
 .about-image {
-    max-width: 25%;
+    max-width: 50%;
     border-radius: 5px;
     margin-right: 20px;
 }
@@ -311,13 +310,13 @@ footer {
 
 .list li:before {
     content: "* ";
-    color: #00ff00;
+    color: #00cc66;
     font-size: 16px;
     margin-right: 10px;
 }
 
 .list li {
-    color: #00ff00;
+    color: #00cc66;
     font-size: 16px;
     margin-right: 10px;
 }
