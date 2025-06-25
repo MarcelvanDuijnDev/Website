@@ -1,14 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <title>Marcel van Duijn | Yukimura - Survival Horror Game</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Yukimura - Survival Horror Game | Marcel van Duijn | Netherlands</title>
       <meta name="description" content="Yukimura - A chilling survival horror game inspired by Japanese folklore and traditional villages. Developed by Marcel van Duijn.">
+      <meta name="keywords" content="Yukimura, survival horror, Japanese folklore, game development, Marcel van Duijn, Steam game">
+      <meta name="author" content="Marcel van Duijn">
+      
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://marcelvanduijn.com/game-yukimura.html">
+      <meta property="og:title" content="Yukimura - Survival Horror Game | Marcel van Duijn">
+      <meta property="og:description" content="A chilling survival horror game inspired by Japanese folklore and traditional villages.">
+      <meta property="og:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      <meta property="og:site_name" content="Marcel van Duijn Portfolio">
+      
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://marcelvanduijn.com/game-yukimura.html">
+      <meta property="twitter:title" content="Yukimura - Survival Horror Game | Marcel van Duijn">
+      <meta property="twitter:description" content="A chilling survival horror game inspired by Japanese folklore and traditional villages.">
+      <meta property="twitter:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      
+      <!-- Favicon -->
       <link rel="icon" href="Files/Icons/WebsiteLogo.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="Files/Icons/WebsiteLogo.ico">
+      
+      <!-- Web App Manifest -->
+      <link rel="manifest" href="/manifest.json">
+      
+      <!-- Stylesheets -->
       <link rel="stylesheet" type="text/css" href="style.css">
+      
+      <!-- Structured Data -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Yukimura",
+        "description": "A chilling survival horror game inspired by Japanese folklore and traditional villages",
+        "url": "https://marcelvanduijn.com/game-yukimura.html",
+        "applicationCategory": "Game",
+        "operatingSystem": "Windows",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://store.steampowered.com/app/2372200/Yukimura/"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Marcel van Duijn"
+        }
+      }
+      </script>
    </head>
    <body>
-      <div id="progressbar"></div>
-      <div id="scrollPath"></div>
       <header>
          <h1>Marcel van Duijn - Yukimura</h1>
          <nav>
@@ -36,49 +82,60 @@
             </ul>
          </nav>
       </header>
-      <section>
-         <div class="content-container">
-            <div class="terminal-container">
-               <div class="back-button"><a href="game-development.html">< Back</a></div>
-               <p>
-                  <iframe width="100%" height="480px" src="https://www.youtube.com/embed/cCxf_ZKRrxE" title="Yukimura Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <br>
-                  <a href="https://store.steampowered.com/app/2372200/Yukimura/" target="_blank">Yukimura on Steam</a>
-               </p>
-               <div>
-                  <br>
-                  <h2 class="terminal-title">Yukimura</h2>
-                  <p class="terminal-text">
-                     <br>
-                     Trapped in a remote, snowbound village, uncover the haunting secrets buried beneath Yukimura’s endless winter. A survival horror experience inspired by Japanese folklore and ancient traditions.
-                  </p>
-                  <ul class="terminal-text">
-                     <li>Explore a handcrafted, snow-covered village inspired by gassho-zukuri architecture.</li>
-                     <li>Uncover hidden folklore through artifacts, documents, and encounters.</li>
-                     <li>Manage your warmth and resources carefully — survival is not guaranteed.</li>
-                     <li>Face supernatural threats that grow stronger as the village consumes you.</li>
-                     <li>Immerse yourself in a world of loneliness, beauty, and dread.</li>
-                  </ul>
+      
+      <main>
+         <section>
+            <div class="content-container">
+               <div class="terminal-container project-page">
+                  <div class="back-button">
+                     <a href="game-development.html">< Back</a>
+                  </div>
+                  
+                  <div class="project-content">
+                     <div class="project-video">
+                        <iframe width="100%" height="480px" src="https://www.youtube.com/embed/cCxf_ZKRrxE" title="Yukimura Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <br>
+                        <a href="https://store.steampowered.com/app/2372200/Yukimura/" target="_blank" rel="noopener noreferrer">Yukimura on Steam</a>
+                     </div>
+                     
+                     <div class="project-description">
+                        <h2 class="terminal-title">Yukimura</h2>
+                        <p class="terminal-text">
+                           <br>
+                           Trapped in a remote, snowbound village, uncover the haunting secrets buried beneath Yukimura's endless winter. A survival horror experience inspired by Japanese folklore and ancient traditions.
+                        </p>
+                        <ul class="terminal-text">
+                           <li>Explore a handcrafted, snow-covered village inspired by gassho-zukuri architecture.</li>
+                           <li>Uncover hidden folklore through artifacts, documents, and encounters.</li>
+                           <li>Manage your warmth and resources carefully — survival is not guaranteed.</li>
+                           <li>Face supernatural threats that grow stronger as the village consumes you.</li>
+                           <li>Immerse yourself in a world of loneliness, beauty, and dread.</li>
+                        </ul>
+                     </div>
+                  </div>
+                  
+                  <div class="steam-widget-section">
+                     <p class="terminal-text">Add Yukimura to your Wishlist on Steam</p>
+                     <iframe src="https://store.steampowered.com/widget/2372200/" frameborder="0" width="646" height="190" title="Yukimura Steam Widget"></iframe>
+                  </div>
                </div>
-               <br><br><br>
-               <center>
-                  <p class="terminal-text">Add Yukimura to your Wishlist on Steam</p>
-                  <iframe src="https://store.steampowered.com/widget/2372200/" frameborder="0" width="646" height="190"></iframe>
-               </center>
             </div>
-         </div>
-      </section>
+         </section>
+      </main>
+      
       <footer class="footer">
          <p>&copy; 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | Social Media: 
-            <a href="https://twitter.com/MarcelvanDuijn_" target="_blank">Twitter</a>, 
-            <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank">LinkedIn</a>, 
-            <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank">Sketchfab</a>, 
-            <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank">YouTube</a>, 
-            <a href="https://www.artstation.com/marcelvanduijn">ArtStation</a>, 
-            <a href="https://www.instagram.com/marcelvanduijn_" target="_blank">Instagram</a>, 
-            <a href="https://github.com/MarcelvanDuijnDev" target="_blank">GitHub</a>. 
+            <a href="https://twitter.com/MarcelvanDuijn_" target="_blank" rel="noopener noreferrer">Twitter</a>, 
+            <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, 
+            <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank" rel="noopener noreferrer">Sketchfab</a>, 
+            <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank" rel="noopener noreferrer">YouTube</a>, 
+            <a href="https://www.artstation.com/marcelvanduijn" target="_blank" rel="noopener noreferrer">ArtStation</a>, 
+            <a href="https://www.instagram.com/marcelvanduijn_" target="_blank" rel="noopener noreferrer">Instagram</a>, 
+            <a href="https://github.com/MarcelvanDuijnDev" target="_blank" rel="noopener noreferrer">GitHub</a>. 
             Thank you for visiting!
          </p>
       </footer>
+      
+      <script src="script.js"></script>
    </body>
 </html>

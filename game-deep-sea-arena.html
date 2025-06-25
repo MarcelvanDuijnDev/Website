@@ -1,14 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <title>Marcel van Duijn | Game Developer & Digital Artist | Netherlands</title>
-      <meta name="description" content="Marcel van Duijn - Game Developer / Digital Artist from the Netherlands. - Thank you for visiting my Portfolio / Showcase website! - Cannon Climbing Game">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Deep Sea Arena - Horror Survival Game | Marcel van Duijn | Netherlands</title>
+      <meta name="description" content="Deep Sea Arena - A terrifying deep-sea horror survival game where you fight for your life against abyssal creatures. Developed by Marcel van Duijn.">
+      <meta name="keywords" content="Deep Sea Arena, horror survival, deep sea, game development, Marcel van Duijn, Steam game">
+      <meta name="author" content="Marcel van Duijn">
+      
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://marcelvanduijn.com/game-deep-sea-arena.html">
+      <meta property="og:title" content="Deep Sea Arena - Horror Survival Game | Marcel van Duijn">
+      <meta property="og:description" content="A terrifying deep-sea horror survival game where you fight for your life against abyssal creatures.">
+      <meta property="og:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      <meta property="og:site_name" content="Marcel van Duijn Portfolio">
+      
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://marcelvanduijn.com/game-deep-sea-arena.html">
+      <meta property="twitter:title" content="Deep Sea Arena - Horror Survival Game | Marcel van Duijn">
+      <meta property="twitter:description" content="A terrifying deep-sea horror survival game where you fight for your life against abyssal creatures.">
+      <meta property="twitter:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      
+      <!-- Favicon -->
       <link rel="icon" href="Files/Icons/WebsiteLogo.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="Files/Icons/WebsiteLogo.ico">
+      
+      <!-- Web App Manifest -->
+      <link rel="manifest" href="/manifest.json">
+      
+      <!-- Stylesheets -->
       <link rel="stylesheet" type="text/css" href="style.css">
+      
+      <!-- Structured Data -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Deep Sea Arena",
+        "description": "A terrifying deep-sea horror survival game where you fight for your life against abyssal creatures",
+        "url": "https://marcelvanduijn.com/game-deep-sea-arena.html",
+        "applicationCategory": "Game",
+        "operatingSystem": "Windows",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://store.steampowered.com/app/3183330/Deep_Sea_Arena/"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Marcel van Duijn"
+        }
+      }
+      </script>
    </head>
    <body>
-      <div id="progressbar"></div>
-      <div id="scrollPath"></div>
       <header>
          <h1>Marcel van Duijn - Deep Sea Arena</h1>
          <nav>
@@ -36,40 +82,46 @@
             </ul>
          </nav>
       </header>
-      <section>
-         <div class="content-container">
-            <div class="terminal-container">
-               <div class="back-button"><a href="game-development.html">< Back</a></div>
-               <p>
-                  <iframe width="100%" height="480px" src="https://www.youtube.com/embed/FdXMi5BbvAg?si=c1dCQ8pZILXpkHmc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <br>
-                  <a href="https://store.steampowered.com/app/3183330/Deep_Sea_Arena/" target="_blank">Deep Sea Arena on Steam</a>
-               </p>
-               <div>
-                  <br>
-                  <h2 class="terminal-title">Deep Sea Arena</h2>
-                  <p class="terminal-text">
-                    <br>
-                    Submerges you into the abyss, where shadows stir, and creatures strike from the dark. Survive relentless waves of deep-sea horrors in a relentless fight for your life. How long can you endure the abyss?
-                  </p>
-               </div>
-               <br><br><br>
-               <center>
-                  <p>
-                     <br><br><br>
-                     <p class="terminal-text">
-                     Play The Demo Now on Steam!
-                     </p>
-                     <iframe src="https://store.steampowered.com/widget/3534550/" frameborder="0" width="646" height="190"></iframe>
+      
+      <main>
+         <section>
+            <div class="content-container">
+               <div class="terminal-container project-page">
+                  <div class="back-button">
+                     <a href="game-development.html">< Back</a>
+                  </div>
+                  
+                  <div class="project-content">
+                     <div class="project-video">
+                        <iframe width="100%" height="480px" src="https://www.youtube.com/embed/FdXMi5BbvAg?si=c1dCQ8pZILXpkHmc" title="Deep Sea Arena Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <br>
+                        <a href="https://store.steampowered.com/app/3183330/Deep_Sea_Arena/" target="_blank" rel="noopener noreferrer">Deep Sea Arena on Steam</a>
+                     </div>
+                     
+                     <div class="project-description">
+                        <h2 class="terminal-title">Deep Sea Arena</h2>
+                        <p class="terminal-text">
+                           <br>
+                           Submerges you into the abyss, where shadows stir, and creatures strike from the dark. Survive relentless waves of deep-sea horrors in a relentless fight for your life. How long can you endure the abyss?
+                        </p>
+                     </div>
+                  </div>
+                  
+                  <div class="steam-widget-section">
+                     <p class="terminal-text">Play The Demo Now on Steam!</p>
+                     <iframe src="https://store.steampowered.com/widget/3534550/" frameborder="0" width="646" height="190" title="Deep Sea Arena Demo Steam Widget"></iframe>
                      <br>
-                     <iframe src="https://store.steampowered.com/widget/3183330/" frameborder="0" width="646" height="190"></iframe>
-                  </p>
-               </center>
+                     <iframe src="https://store.steampowered.com/widget/3183330/" frameborder="0" width="646" height="190" title="Deep Sea Arena Full Game Steam Widget"></iframe>
+                  </div>
+               </div>
             </div>
-         </div>
-      </section>
+         </section>
+      </main>
+      
       <footer class="footer">
-         <p>&copy; 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank"> GitHub </a>, Thank you for visiting!</p>
+         <p>&copy; 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank" rel="noopener noreferrer">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank" rel="noopener noreferrer">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank" rel="noopener noreferrer">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank" rel="noopener noreferrer">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn" target="_blank" rel="noopener noreferrer"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank" rel="noopener noreferrer"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank" rel="noopener noreferrer"> GitHub </a>, Thank you for visiting!</p>
       </footer>
+      
+      <script src="script.js"></script>
    </body>
 </html>

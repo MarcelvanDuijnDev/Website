@@ -1,14 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <title>Marcel van Duijn | Game Developer & Digital Artist | Netherlands</title>
-      <meta name="description" content="Marcel van Duijn - Game Developer / Digital Artist from the Netherlands. - Thank you for visiting my Portfolio / Showcase website! - Cannon Climbing Game">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cannon Climbing - Precision Platformer | Marcel van Duijn | Netherlands</title>
+      <meta name="description" content="Cannon Climbing - A thrilling precision platformer where you play as a cannon shooting your way to new heights. Developed by Marcel van Duijn.">
+      <meta name="keywords" content="Cannon Climbing, precision platformer, game development, Marcel van Duijn, Steam game">
+      <meta name="author" content="Marcel van Duijn">
+      
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://marcelvanduijn.com/game-cannon-climbing.html">
+      <meta property="og:title" content="Cannon Climbing - Precision Platformer | Marcel van Duijn">
+      <meta property="og:description" content="A thrilling precision platformer where you play as a cannon shooting your way to new heights.">
+      <meta property="og:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      <meta property="og:site_name" content="Marcel van Duijn Portfolio">
+      
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://marcelvanduijn.com/game-cannon-climbing.html">
+      <meta property="twitter:title" content="Cannon Climbing - Precision Platformer | Marcel van Duijn">
+      <meta property="twitter:description" content="A thrilling precision platformer where you play as a cannon shooting your way to new heights.">
+      <meta property="twitter:image" content="https://marcelvanduijn.com/Files/Images/MarcelvanDuijn.jpeg">
+      
+      <!-- Favicon -->
       <link rel="icon" href="Files/Icons/WebsiteLogo.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="Files/Icons/WebsiteLogo.ico">
+      
+      <!-- Web App Manifest -->
+      <link rel="manifest" href="/manifest.json">
+      
+      <!-- Stylesheets -->
       <link rel="stylesheet" type="text/css" href="style.css">
+      
+      <!-- Structured Data -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Cannon Climbing",
+        "description": "A thrilling precision platformer where you play as a cannon shooting your way to new heights",
+        "url": "https://marcelvanduijn.com/game-cannon-climbing.html",
+        "applicationCategory": "Game",
+        "operatingSystem": "Windows",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://store.steampowered.com/app/2257800/Cannon_Climbing/"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Marcel van Duijn"
+        }
+      }
+      </script>
    </head>
    <body>
-      <div id="progressbar"></div>
-      <div id="scrollPath"></div>
       <header>
          <h1>Marcel van Duijn - Cannon Climbing</h1>
          <nav>
@@ -36,57 +82,63 @@
             </ul>
          </nav>
       </header>
-      <section>
-         <div class="content-container">
-            <div class="terminal-container">
-               <div class="back-button"><a href="game-development.html">< Back</a></div>
-               <center>
-                  <p>
-                     <iframe src="https://store.steampowered.com/widget/2257800/" frameborder="0" width="646" height="190"></iframe>
-                  </p>
-               </center>
-               <p>
-                  <iframe width="100%" height="480px" src="https://www.youtube.com/embed/c2tbrPc3VB8?si=rags-LtPEQPkYLpx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-                  <br>
-                  <a href="https://store.steampowered.com/app/2257800/Cannon_Climbing/" target="_blank">Cannon Climbing on Steam</a>
-               </p>
-               <div>
-                  <br>
-                  <h2 class="terminal-title>About This Game:</h2>
-                  <img src="Files/Gifs/CannonClimbing_Gif1.gif" alt="Cannon Climbing Gif 1" class="capsule-image">
-                  <h2 class="terminal-title">Cannon Climbing</h2>
-                  <p class="terminal-text">
-                    <br>
-                    Cannon Climbing is a thrilling precision platformer where you play as a cannon shooting your way to new heights. Ascend a massive test chamber filled with unique obstacles and Outmaneuver laser-wielding robots along the way. Use your knockback to gain momentum and reach new heights, but beware - one wrong move and you'll be sent back to the bottom. Can you conquer the ultimate test of skill and make it to the top?
-                    Wishlist now and find out!
-                  </p>
-                  <br>
-                  <br>
-                  <center><img src="Files/Gifs/CannonClimbing_Gif2.gif" alt="Cannon Climbing Gif 2" class="capsule-image"></center>
-                  <h2 class="terminal-title">Features:</h2>
-                  <p class="terminal-text">
-                     <br>
-                    <ul class="nav-terminal list">
-                      <li>Play as a cannon and use shooting to propel yourself to new heights</li>
-                      <li>Ascend a massive test chamber filled with different themed levels</li>
-                      <li>Dodge enemy robots and their laser attacks</li>
-                      <li>Use knockback from shooting to gain momentum and reach new heights</li>
-                      <li>Challenging gameplay that tests your skills</li>
-                      <li>Multiple achievements to unlock</li>
-                      <li>Steam Leaderboards to compete with other players</li>
-                      <li>Connect to twitch</li>
-                    </ul>
-                  </p>
-                  <br>
-                  <br>
-                  <center><img src="Files/Gifs/CannonClimbing_Gif3.gif" alt="Cannon Climbing Gif 3" class="capsule-image"></center>
+      
+      <main>
+         <section>
+            <div class="content-container">
+               <div class="terminal-container project-page">
+                  <div class="back-button">
+                     <a href="game-development.html">< Back</a>
+                  </div>
+                  
+                  <div class="project-content">
+                     <div class="project-video">
+                        <iframe width="100%" height="480px" src="https://www.youtube.com/embed/c2tbrPc3VB8?si=rags-LtPEQPkYLpx" title="Cannon Climbing Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <br>
+                        <a href="https://store.steampowered.com/app/2257800/Cannon_Climbing/" target="_blank" rel="noopener noreferrer">Cannon Climbing on Steam</a>
+                     </div>
+                     
+                     <div class="project-description">
+                        <h2 class="terminal-title">Cannon Climbing</h2>
+                        <p class="terminal-text">
+                           <br>
+                           Cannon Climbing is a thrilling precision platformer where you play as a cannon shooting your way to new heights. Ascend a massive test chamber filled with unique obstacles and Outmaneuver laser-wielding robots along the way. Use your knockback to gain momentum and reach new heights, but beware - one wrong move and you'll be sent back to the bottom. Can you conquer the ultimate test of skill and make it to the top?
+                        </p>
+                        
+                        <div class="project-gallery">
+                           <img src="Files/Gifs/CannonClimbing_Gif1.gif" alt="Cannon Climbing Gameplay GIF 1" class="capsule-image">
+                           
+                           <h3 class="terminal-title">Features:</h3>
+                           <ul class="terminal-text">
+                              <li>Play as a cannon and use shooting to propel yourself to new heights</li>
+                              <li>Ascend a massive test chamber filled with different themed levels</li>
+                              <li>Dodge enemy robots and their laser attacks</li>
+                              <li>Use knockback from shooting to gain momentum and reach new heights</li>
+                              <li>Challenging gameplay that tests your skills</li>
+                              <li>Multiple achievements to unlock</li>
+                              <li>Steam Leaderboards to compete with other players</li>
+                              <li>Connect to twitch</li>
+                           </ul>
+                           
+                           <img src="Files/Gifs/CannonClimbing_Gif2.gif" alt="Cannon Climbing Gameplay GIF 2" class="capsule-image">
+                           <img src="Files/Gifs/CannonClimbing_Gif3.gif" alt="Cannon Climbing Gameplay GIF 3" class="capsule-image">
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="steam-widget-section">
+                     <p class="terminal-text">Add Cannon Climbing to your Wishlist on Steam</p>
+                     <iframe src="https://store.steampowered.com/widget/2257800/" frameborder="0" width="646" height="190" title="Cannon Climbing Steam Widget"></iframe>
+                  </div>
                </div>
             </div>
-         </div>
-      </section>
+         </section>
+      </main>
+      
       <footer class="footer">
-         <p>&copy; 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank"> GitHub </a>, Thank you for visiting!</p>
+         <p>&copy; 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank" rel="noopener noreferrer">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank" rel="noopener noreferrer">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank" rel="noopener noreferrer">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank" rel="noopener noreferrer">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn" target="_blank" rel="noopener noreferrer"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank" rel="noopener noreferrer"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank" rel="noopener noreferrer"> GitHub </a>, Thank you for visiting!</p>
       </footer>
+      
+      <script src="script.js"></script>
    </body>
 </html>

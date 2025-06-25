@@ -1,0 +1,103 @@
+{
+  "name": "Marcel van Duijn - Portfolio",
+  "short_name": "Marcel Portfolio",
+  "description": "Game Developer and Digital Artist Portfolio - Marcel van Duijn",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#333333",
+  "theme_color": "#00cc66",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["portfolio", "games", "art", "technology"],
+  "icons": [
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "128x128",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/Files/Icons/WebsiteLogo.ico",
+      "sizes": "512x512",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Files/Images/MarcelvanDuijn.jpeg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Portfolio Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Me",
+      "short_name": "About",
+      "description": "Learn more about Marcel van Duijn",
+      "url": "/about-me.html",
+      "icons": [
+        {
+          "src": "/Files/Icons/WebsiteLogo.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Game Development",
+      "short_name": "Games",
+      "description": "View game development projects",
+      "url": "/game-development.html",
+      "icons": [
+        {
+          "src": "/Files/Icons/WebsiteLogo.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "3D Art",
+      "short_name": "Art",
+      "description": "View 3D art and digital art projects",
+      "url": "/art-3d.html",
+      "icons": [
+        {
+          "src": "/Files/Icons/WebsiteLogo.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+} 
