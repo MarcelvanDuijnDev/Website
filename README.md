@@ -161,7 +161,7 @@ The website is ready for deployment on any static hosting service:
 
 ## 📝 License
 
-© 2024 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved.
+© 2025 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved.
 
 ## 🤝 Contributing
 
