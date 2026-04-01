@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Aethvion Suite - AI Super App | Marcel van Duijn</title>
+      <meta name="description" content="Aethvion Suite - A unified AI-powered super-app ecosystem for chat, image generation, audio editing, and more. Developed by Marcel van Duijn.">
+      <meta name="keywords" content="Aethvion Suite, AI, LLM, Agents, Image Generation, Audio Editor, IDE, Multi-modal AI">
+      <meta name="author" content="Marcel van Duijn">
+      
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://marcelvanduijn.com/aethvion-suite.html">
+      <meta property="og:title" content="Aethvion Suite - AI Super App | Marcel van Duijn">
+      <meta property="og:description" content="A unified AI-powered super-app ecosystem for chat, image generation, audio editing, and more.">
+      <meta property="og:image" content="https://marcelvanduijn.com/Files/showcase/AethvionSuite_HomeScreen.png">
+      <meta property="og:site_name" content="Marcel van Duijn Portfolio">
+      
+      <!-- Twitter -->
+      <meta property="twitter:card" content="summary_large_image">
+      <meta property="twitter:url" content="https://marcelvanduijn.com/aethvion-suite.html">
+      <meta property="twitter:title" content="Aethvion Suite - AI Super App | Marcel van Duijn">
+      <meta property="twitter:description" content="A unified AI-powered super-app ecosystem for chat, image generation, audio editing, and more.">
+      <meta property="twitter:image" content="https://marcelvanduijn.com/Files/showcase/AethvionSuite_HomeScreen.png">
+      
+      <!-- Favicon -->
+      <link rel="icon" href="Files/Icons/WebsiteLogo.ico" type="image/x-icon">
+      <link rel="apple-touch-icon" href="Files/Icons/WebsiteLogo.ico">
+      
+      <!-- Stylesheets -->
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <style>
+         .suite-hero {
+            width: 100%;
+            margin-bottom: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--border-color);
+            box-shadow: 0 0 30px var(--shadow-glow);
+            transition: transform var(--transition-speed) ease;
+         }
+         .suite-hero:hover {
+            transform: scale(1.01);
+         }
+         .suite-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+         }
+         .suite-card {
+            background-color: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+         }
+         .suite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+            border-color: var(--primary-color);
+         }
+         .suite-card img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+         }
+         .suite-card-title {
+            color: var(--primary-color);
+            font-size: var(--font-size-large);
+            margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 5px var(--shadow-glow);
+         }
+         .suite-card-desc {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: var(--font-size-small);
+         }
+         .usage-section {
+            margin-top: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background-color: var(--background-darker);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+         }
+         .usage-image {
+            width: 100%;
+            margin-top: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+         }
+         @media (max-width: 768px) {
+            .suite-grid {
+               grid-template-columns: 1fr;
+            }
+         }
+         .repo-link {
+            display: block;
+            text-align: center;
+            margin: var(--spacing-xl) auto;
+            padding: var(--spacing-md);
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: var(--border-radius);
+            font-size: var(--font-size-xl);
+            text-decoration: none;
+            max-width: 400px;
+         }
+         .repo-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--primary-color);
+            color: var(--background-darker);
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Marcel van Duijn - Aethvion Suite</h1>
+         <nav>
+            <br>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="about-me.html">About Me</a></li>
+               <li><a href="aethvion-suite.html">Aethvion Suite</a></li>
+               <li><a href="game-development.html">Game Development</a>
+                  <ul class="dropdown">
+                     <li><a href="game-yukimura.html">> Yukimura 幸村</a></li>
+                     <li><a href="game-cornfield-escape.html">> Cornfield Escape</a></li>
+                     <li><a href="game-deep-sea-arena.html">> Deep Sea Arena</a></li>
+                     <li><a href="game-rock-paper-scissors.html">> Rock Paper Scissors</a></li>
+                     <li><a href="game-cannon-climbing.html">> Cannon Climbing</a></li>
+                     <li><a href="project-unity-tools.html">> Unity Tools</a></li>
+                     <li><a href="project-archive.html">> Project Archive</a></li>
+                  </ul>
+               </li>
+               <li><a href="art-3d.html">Art/3D</a>
+                  <ul class="dropdown">
+                     <li><a href="modeling3d.html">> 3D Modeling</a></li>
+                     <li><a href="renders-simulations-vfx.html">> Renders / Simulations</a></li>
+                     <li><a href="substance-painter-designer.html">> Substance Painter/Designer</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      
+      <main>
+         <section>
+            <div class="content-container">
+               <div class="terminal-container">
+                  <h2 class="terminal-title">Aethvion Suite</h2>
+                  <a href="https://github.com/Aethvion/Aethvion-Suite" target="_blank" rel="noopener noreferrer" class="terminal-text" style="text-decoration: underline;">View Source on GitHub</a>
+                  <p class="terminal-text">
+                     <br>
+                     A unified AI-powered super-app ecosystem designed for versatility and power. 
+                     From advanced multi-step agents to professional audio editing and code execution, 
+                     Aethvion Suite brings together the next generation of creative and productivity tools.
+                  </p>
+                  
+                  <img src="Files/showcase/AethvionSuite_HomeScreen.png" alt="Aethvion Suite Home Screen" class="suite-hero">
+                  
+                  <div class="suite-grid">
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_Agent.png" alt="Agent Workspace">
+                        <div class="suite-card-title">Agent Workspace</div>
+                        <div class="suite-card-desc">Multi-step ReAct agent runner with real-time SSE event streaming for complex task automation.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_AgentCorp.png" alt="Agent Corp">
+                        <div class="suite-card-title">Agent Corp</div>
+                        <div class="suite-card-desc">Manage and collaborate with multiple persistent specialized agents in a unified corporate infrastructure.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_MisakaCipher.png" alt="Misaka Cipher">
+                        <div class="suite-card-title">Misaka Cipher</div>
+                        <div class="suite-card-desc">Multi-provider AI chat with threads, auto-routing, and context modes for the ultimate conversational experience.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_Photo.png" alt="Aethvion Photo">
+                        <div class="suite-card-title">Aethvion Photo</div>
+                        <div class="suite-card-desc">AI image generation and precision layer-based editing system for digital artists and creators.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_Audio.png" alt="Aethvion Audio">
+                        <div class="suite-card-title">Aethvion Audio</div>
+                        <div class="suite-card-desc">Professional multi-track timeline editor with live waveforms and real-time effects processing.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_Code.png" alt="Aethvion Code IDE">
+                        <div class="suite-card-title">Aethvion Code IDE</div>
+                        <div class="suite-card-desc">Monaco-based IDE with integrated AI copilot and secure sandboxed code execution environment.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_LocalModels.png" alt="Direct Local Inference">
+                        <div class="suite-card-title">Direct Local Inference</div>
+                        <div class="suite-card-desc">Run GGUF models (Mistral, LLaMA) directly on your hardware for privacy and performance.</div>
+                     </div>
+                     <div class="suite-card">
+                        <img src="Files/showcase/AethvionSuite_DriveInfo.png" alt="Aethvion Drive Info">
+                        <div class="suite-card-title">Aethvion Drive Info</div>
+                        <div class="suite-card-desc">Recursive system storage analysis and visual representation of your digital space.</div>
+                     </div>
+                  </div>
+                  
+                  <div class="usage-section">
+                     <h3 class="terminal-title">Usage & Cost Tracking</h3>
+                     <p class="terminal-text">Monitor token usage, cost estimates, and granular per-query breakdowns to keep your AI operations efficient and transparent.</p>
+                     <img src="Files/showcase/AethvionSuite_UsagePage.png" alt="Aethvion Suite Usage Page" class="usage-image">
+                  </div>
+                  
+                  <a href="https://github.com/Aethvion/Aethvion-Suite" target="_blank" rel="noopener noreferrer" class="repo-link">View on GitHub</a>
+               </div>
+            </div>
+         </section>
+      </main>
+      
+      <footer class="footer">
+         <p>&copy; 2026 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | My Company: <a href="https://aethvion.com/" target="_blank" rel="noopener noreferrer">Aethvion</a> | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank" rel="noopener noreferrer">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank" rel="noopener noreferrer">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank" rel="noopener noreferrer">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank" rel="noopener noreferrer">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn" target="_blank" rel="noopener noreferrer"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank" rel="noopener noreferrer"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank" rel="noopener noreferrer"> GitHub </a>, Thank you for visiting!</p>
+      </footer>
+      
+      <script src="script.js"></script>
+   </body>
+</html>
