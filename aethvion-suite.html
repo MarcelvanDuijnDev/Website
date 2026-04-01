@@ -48,8 +48,9 @@
             margin: var(--spacing-xl) 0;
          }
          .suite-card {
-            background-color: var(--background-light);
-            border: 1px solid var(--border-color);
+            background-color: rgba(28, 28, 28, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 204, 102, 0.2);
             border-radius: var(--border-radius);
             padding: var(--spacing-md);
             transition: all var(--transition-speed) ease;
@@ -59,8 +60,9 @@
          }
          .suite-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px var(--shadow-color);
+            box-shadow: 0 10px 30px rgba(0, 204, 102, 0.2);
             border-color: var(--primary-color);
+            background-color: rgba(28, 28, 28, 0.8);
          }
          .suite-card img {
             width: 100%;
@@ -81,8 +83,9 @@
          .usage-section {
             margin-top: var(--spacing-xl);
             padding: var(--spacing-lg);
-            background-color: var(--background-darker);
-            border: 1px solid var(--border-color);
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 204, 102, 0.2);
             border-radius: var(--border-radius);
          }
          .usage-image {

@@ -36,12 +36,13 @@ body, h1, h2, h3, p {
 }
 
 body {
-    background-color: var(--background-dark);
+    background: radial-gradient(circle at top left, #0d2a1f 0%, #050505 100%);
+    background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     position: relative;
-    min-height: 60vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -102,8 +103,10 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus {
-    background-color: var(--accent-color);
+    background-color: rgba(0, 255, 102, 0.05);
     color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 204, 102, 0.2);
     transform: translateY(-2px);
 }
 
@@ -224,10 +227,12 @@ a:focus {
     justify-content: center;
     align-items: center;
     margin: var(--spacing-lg) auto;
-    background-color: var(--background-darker);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 204, 102, 0.2);
     border-radius: var(--border-radius);
     padding: var(--spacing-xl);
-    box-shadow: 0 0 100px var(--shadow-color);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 204, 102, 0.05);
     max-width: 1200px;
     width: 100%;
 }
@@ -303,12 +308,13 @@ a:focus {
 }
 
 .terminal-container {
-    background-color: var(--background-light);
-    border: 1px solid var(--border-color);
+    background-color: rgba(28, 28, 28, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 204, 102, 0.2);
     border-radius: var(--border-radius);
     padding: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
-    box-shadow: 0 4px 8px var(--shadow-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
 .terminal-title {
