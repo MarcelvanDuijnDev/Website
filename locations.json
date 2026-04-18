@@ -11,17 +11,19 @@
     {
         "country": "Netherlands",
         "provinces": 12,
-        "visited": 8,
-        "percentage": "66.67%",
+        "visited": 10,
+        "percentage": "83.33%",
         "visited_regions": [
-            "North Holland",
-            "South Holland",
-            "Utrecht",
+            "Drenthe",
+            "Friesland",
             "Gelderland",
-            "Noord-Brabant",
-            "Overijssel",
             "Groningen",
-            "Friesland"
+            "Limburg",
+            "North Brabant",
+            "North Holland",
+            "Overijssel",
+            "South Holland",
+            "Utrecht"
         ]
     },
     {
@@ -30,19 +32,19 @@
         "visited": 13,
         "percentage": "27.66%",
         "visited_regions": [
-            "Tokyo",
-            "Osaka",
-            "Kyoto",
-            "Kanagawa",
-            "Chiba",
-            "Saitama",
             "Tochigi",
             "Gunma",
+            "Tokyo",
+            "Kanagawa",
+            "Ishikawa",
+            "Yamanashi",
+            "Nagano",
+            "Gifu",
             "Shizuoka",
-            "Aichi",
-            "Mie",
+            "Kyoto",
+            "Osaka",
             "Nara",
-            "Hyogo"
+            "Hiroshima"
         ]
     },
     {
@@ -72,10 +74,23 @@
         "percentage": "14.71%",
         "visited_regions": [
             "Beijing",
-            "Shanghai",
-            "Guangdong",
-            "Zhejiang",
-            "Jiangsu"
+            "Chongqing",
+            "Hunan",
+            "Shaanxi",
+            "Shanghai"
+        ]
+    },
+    {
+        "country": "South Korea",
+        "provinces": 17,
+        "visited": 5,
+        "percentage": "29.41%",
+        "visited_regions": [
+            "Seoul",
+            "Busan",
+            "Gangwon-do",
+            "Gyeongsangbok-do",
+            "Jeju-do"
         ]
     },
     {
