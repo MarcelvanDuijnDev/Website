@@ -1,0 +1,126 @@
+[
+    {
+        "country": "Vatican",
+        "provinces": 1,
+        "visited": 1,
+        "percentage": "100.00%",
+        "visited_regions": [
+            "Vatican City"
+        ]
+    },
+    {
+        "country": "Netherlands",
+        "provinces": 12,
+        "visited": 8,
+        "percentage": "66.67%",
+        "visited_regions": [
+            "North Holland",
+            "South Holland",
+            "Utrecht",
+            "Gelderland",
+            "Noord-Brabant",
+            "Overijssel",
+            "Groningen",
+            "Friesland"
+        ]
+    },
+    {
+        "country": "Japan",
+        "provinces": 47,
+        "visited": 13,
+        "percentage": "27.66%",
+        "visited_regions": [
+            "Tokyo",
+            "Osaka",
+            "Kyoto",
+            "Kanagawa",
+            "Chiba",
+            "Saitama",
+            "Tochigi",
+            "Gunma",
+            "Shizuoka",
+            "Aichi",
+            "Mie",
+            "Nara",
+            "Hyogo"
+        ]
+    },
+    {
+        "country": "United Kingdom",
+        "provinces": 4,
+        "visited": 1,
+        "percentage": "25.00%",
+        "visited_regions": [
+            "England"
+        ]
+    },
+    {
+        "country": "Germany",
+        "provinces": 16,
+        "visited": 3,
+        "percentage": "18.75%",
+        "visited_regions": [
+            "Bavaria",
+            "Berlin",
+            "Hamburg"
+        ]
+    },
+    {
+        "country": "China",
+        "provinces": 34,
+        "visited": 5,
+        "percentage": "14.71%",
+        "visited_regions": [
+            "Beijing",
+            "Shanghai",
+            "Guangdong",
+            "Zhejiang",
+            "Jiangsu"
+        ]
+    },
+    {
+        "country": "Andorra",
+        "provinces": 7,
+        "visited": 1,
+        "percentage": "14.29%",
+        "visited_regions": [
+            "Andorra la Vella"
+        ]
+    },
+    {
+        "country": "Czechia",
+        "provinces": 14,
+        "visited": 1,
+        "percentage": "7.14%",
+        "visited_regions": [
+            "Prague"
+        ]
+    },
+    {
+        "country": "Spain",
+        "provinces": 17,
+        "visited": 1,
+        "percentage": "5.88%",
+        "visited_regions": [
+            "Catalonia"
+        ]
+    },
+    {
+        "country": "Italy",
+        "provinces": 20,
+        "visited": 1,
+        "percentage": "5.00%",
+        "visited_regions": [
+            "Lazio"
+        ]
+    },
+    {
+        "country": "France",
+        "provinces": 13,
+        "visited": 1,
+        "percentage": "7.69%",
+        "visited_regions": [
+            "\u00c3\u017dle-de-France"
+        ]
+    }
+]

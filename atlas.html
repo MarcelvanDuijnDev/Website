@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Atlas | Marcel van Duijn | Travel Journey</title>
+      <meta name="description" content="Explore my travel journey across the globe. Interactive map and statistics of countries and provinces visited.">
+      <meta name="author" content="Marcel van Duijn">
+      
+      <!-- Favicon -->
+      <link rel="icon" href="Files/Icons/WebsiteLogo.ico" type="image/x-icon">
+      
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="style.css">
+      <!-- MapLibre GL JS -->
+      <link href="https://unpkg.com/maplibre-gl@^4.0.0/dist/maplibre-gl.css" rel="stylesheet" />
+      <script src="https://unpkg.com/maplibre-gl@^4.0.0/dist/maplibre-gl.js"></script>
+      
+      <style>
+         #map {
+            width: 100%;
+            height: 700px;
+            background-color: var(--background-darker);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 50px rgba(0, 204, 102, 0.15);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+         }
+
+         .map-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            color: var(--primary-color);
+            z-index: 10;
+            pointer-events: none;
+            font-family: var(--font-primary);
+         }
+
+         .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+         }
+
+         .stat-card {
+            background-color: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 204, 102, 0.2);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all var(--transition-speed) ease;
+         }
+
+         .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 204, 102, 0.1);
+         }
+
+         .stat-value {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 10px rgba(0, 204, 102, 0.3);
+         }
+
+         .stat-label {
+            color: var(--text-light);
+            font-size: var(--font-size-small);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+         }
+
+         .atlas-table-container {
+            overflow-x: auto;
+            background-color: rgba(28, 28, 28, 0.5);
+            backdrop-filter: blur(5px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(0, 204, 102, 0.1);
+         }
+
+         .atlas-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+         }
+
+         .atlas-table th, .atlas-table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid rgba(0, 204, 102, 0.1);
+         }
+
+         .atlas-table th {
+            color: var(--primary-color);
+            font-weight: bold;
+            background-color: rgba(0, 204, 102, 0.05);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+         }
+
+         .atlas-table tr:hover {
+            background-color: rgba(0, 204, 102, 0.05);
+         }
+
+         .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background-color: #222;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+            border: 1px solid #333;
+         }
+
+         .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--primary-color);
+            transition: width 1.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+         }
+
+         .map-tooltip .mapboxgl-popup-content, 
+         .map-tooltip .maplibregl-popup-content {
+            background: rgba(15, 15, 15, 0.7) !important;
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            color: var(--text-light);
+            padding: 15px;
+            border-radius: 12px;
+            font-family: var(--font-primary);
+            font-size: 14px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+         }
+
+         .map-tooltip .mapboxgl-popup-tip,
+         .map-tooltip .maplibregl-popup-tip {
+            border-top-color: rgba(15, 15, 15, 0.7) !important;
+         }
+
+         .region-row {
+            cursor: pointer;
+            transition: background 0.2s;
+         }
+
+         .region-row:hover {
+            background: rgba(0, 204, 102, 0.05);
+         }
+
+         .country-header {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+         }
+
+         .fold-icon {
+            transition: transform 0.3s ease;
+            display: inline-block;
+            color: var(--primary-color);
+         }
+
+         .expanded .fold-icon {
+            transform: rotate(90deg);
+         }
+
+         .regions-list-container {
+            padding: 10px 15px 15px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            display: none;
+         }
+
+         .expanded + .regions-list-row .regions-list-container {
+            display: block;
+         }
+
+         .region-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin: 2px;
+         }
+
+         .region-tag.visited {
+            background: rgba(0, 204, 102, 0.2);
+            border: 1px solid var(--primary-color);
+            color: white;
+         }
+
+         .region-tag.unfinished {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+         }
+
+         .legend {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 204, 102, 0.3);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            z-index: 10;
+            font-family: var(--font-primary);
+            font-size: 12px;
+         }
+
+         .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            color: var(--text-light);
+         }
+
+         .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+         }
+
+         @media (max-width: 768px) {
+            #map {
+               height: 500px;
+            }
+            .legend {
+               display: none;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Marcel van Duijn</h1>
+         <nav>
+            <br>
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="about-me.html">About Me</a></li>
+               <li><a href="atlas.html">Atlas</a></li>
+               <li><a href="aethvion-suite.html">Aethvion Suite</a></li>
+               <li><a href="game-development.html">Game Development</a>
+                  <ul class="dropdown">
+                     <li><a href="game-yukimura.html">> Yukimura 幸村</a></li>
+                     <li><a href="game-cornfield-escape.html">> Cornfield Escape</a></li>
+                     <li><a href="game-deep-sea-arena.html">> Deep Sea Arena</a></li>
+                     <li><a href="game-rock-paper-scissors.html">> Rock Paper Scissors</a></li>
+                     <li><a href="game-cannon-climbing.html">> Cannon Climbing</a></li>
+                     <li><a href="project-unity-tools.html">> Unity Tools</a></li>
+                     <li><a href="project-archive.html">> Project Archive</a></li>
+                  </ul>
+               </li>
+               <li><a href="art-3d.html">Art/3D</a>
+                  <ul class="dropdown">
+                    <li><a href="modeling3d.html">> 3D Modeling</a></li>
+                    <li><a href="renders-simulations-vfx.html">> Renders / Simulations</a></li>
+                    <li><a href="substance-painter-designer.html">> Substance Painter/Designer</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      
+      <main>
+         <section id="map-section" style="margin-top: var(--spacing-md);">
+            <div id="map">
+               <div class="map-overlay" id="map-overlay">
+                  <strong>PINPOINT MODE</strong><br>
+                  Zoom in for Precision
+               </div>
+               <div class="legend" id="legend">
+                  <div class="legend-item"><div class="legend-color" style="background: #00cc66;"></div> High Completion (>50%)</div>
+                  <div class="legend-item"><div class="legend-color" style="background: #ffcc00;"></div> Medium Completion (15-50%)</div>
+                  <div class="legend-item"><div class="legend-color" style="background: #ff4b2b;"></div> Exploration Phase (<15%)</div>
+               </div>
+            </div>
+         </section>
+
+         <section id="stats-section">
+            <h2 class="terminal-title">Journey Statistics</h2>
+            <div class="stats-grid" id="stats-container">
+               <div class="stat-card">
+                  <span class="stat-value" id="stat-countries">0</span>
+                  <span class="stat-label">Countries Visited</span>
+               </div>
+               <div class="stat-card">
+                  <span class="stat-value" id="stat-provinces">0</span>
+                  <span class="stat-label">Provinces Explored</span>
+               </div>
+               <div class="stat-card">
+                  <span class="stat-value" id="stat-world-percent">0%</span>
+                  <span class="stat-label">World Completion</span>
+               </div>
+               <div class="stat-card">
+                  <span class="stat-value" id="stat-discovery">0</span>
+                  <span class="stat-label">Discovery Rate</span>
+               </div>
+            </div>
+         </section>
+
+         <section id="details-section">
+            <h2 class="terminal-title">Regional Breakdown</h2>
+            <div class="atlas-table-container">
+               <table class="atlas-table">
+                  <thead>
+                     <tr>
+                        <th>Country</th>
+                        <th>Provinces</th>
+                        <th>Visited</th>
+                        <th>Completion</th>
+                     </tr>
+                  </thead>
+                  <tbody id="atlas-table-body">
+                     <!-- Data will be loaded via JS -->
+                  </tbody>
+               </table>
+            </div>
+         </section>
+      </main>
+      
+      <footer class="footer">
+         <p>&copy; 2026 Marcel van Duijn (MarcelvanDuijnDev). All rights reserved. | My Company: <a href="https://aethvion.com/" target="_blank" rel="noopener noreferrer">Aethvion</a> | Social Media: <a href="https://twitter.com/MarcelvanDuijn_" target="_blank" rel="noopener noreferrer">Twitter</a>, <a href="https://www.linkedin.com/in/marcel-van-duijn/" target="_blank" rel="noopener noreferrer">Linkedin</a>, <a href="https://sketchfab.com/MarcelvanDuijn" target="_blank" rel="noopener noreferrer">Sketchfab</a>, <a href="https://www.youtube.com/channel/UCifUu8rDfr-ljsMx8bUVGrg" target="_blank" rel="noopener noreferrer">Youtube</a>, <a href="https://www.artstation.com/marcelvanduijn" target="_blank" rel="noopener noreferrer"> Artstation </a>, <a href="https://www.instagram.com/marcelvanduijn_" target="_blank" rel="noopener noreferrer"> Instagram </a>, <a href="https://github.com/MarcelvanDuijnDev" target="_blank" rel="noopener noreferrer"> GitHub </a>, Thank you for visiting!</p>
+      </footer>
+      
+      <script>
+         document.addEventListener('DOMContentLoaded', async () => {
+            try {
+               const response = await fetch('locations.json');
+               const data = await response.json();
+               
+               const countryData = {
+                  "Vatican": { iso: "VAT", center: [12.4534, 41.9029], zoom: 15 },
+                  "Netherlands": { iso: "NLD", center: [5.2913, 52.1326], zoom: 6 },
+                  "Japan": { iso: "JPN", center: [138.2529, 36.2048], zoom: 4.5 },
+                  "United Kingdom": { iso: "GBR", center: [-3.4360, 55.3781], zoom: 5 },
+                  "Germany": { iso: "DEU", center: [10.4515, 51.1657], zoom: 5 },
+                  "China": { iso: "CHN", center: [104.1954, 35.8617], zoom: 3.5 },
+                  "Andorra": { iso: "AND", center: [1.5218, 42.5063], zoom: 10 },
+                  "Czechia": { iso: "CZE", center: [15.4730, 49.8175], zoom: 6 },
+                  "Spain": { iso: "ESP", center: [-3.7492, 40.4637], zoom: 5 },
+                  "Italy": { iso: "ITA", center: [12.5674, 41.8719], zoom: 5 },
+                  "France": { iso: "FRA", center: [2.2137, 46.2276], zoom: 5 }
+               };
+
+               const regionCoordinates = {
+                  // Netherlands
+                  "North Holland": [4.9, 52.6], "South Holland": [4.5, 52.0], "Utrecht": [5.1, 52.1], "Gelderland": [5.9, 52.1],
+                  "Noord-Brabant": [5.3, 51.6], "Overijssel": [6.3, 52.4], "Groningen": [6.7, 53.2], "Friesland": [5.9, 53.1],
+                  // Japan
+                  "Tokyo": [139.6917, 35.6895], "Osaka": [135.5023, 34.6937], "Kyoto": [135.7681, 35.0116], "Kanagawa": [139.6425, 35.4478],
+                  "Chiba": [140.1232, 35.6074], "Saitama": [139.6489, 35.8570], "Tochigi": [139.8836, 36.5658], "Gunma": [139.0608, 36.3895],
+                  "Shizuoka": [138.3828, 34.9756], "Aichi": [136.9066, 35.1815], "Mie": [136.5086, 34.7303], "Nara": [135.8327, 34.6851], "Hyogo": [135.2101, 34.6913],
+                  // Germany
+                  "Bavaria": [11.582, 48.1351], "Berlin": [13.405, 52.52], "Hamburg": [9.9937, 53.5511],
+                  // China
+                  "Beijing": [116.4074, 39.9042], "Shanghai": [121.4737, 31.2304], "Guangdong": [113.2644, 23.1291], "Zhejiang": [120.1536, 30.2875], "Jiangsu": [118.7674, 32.0415],
+                  // Others
+                  "Vatican City": [12.4534, 41.9029], "England": [-0.1278, 51.5074], "Andorra la Vella": [1.5218, 42.5063], "Prague": [14.4378, 50.0755],
+                  "Catalonia": [2.1734, 41.3851], "Lazio": [12.5674, 41.8719], "Île-de-France": [2.3522, 48.8566]
+               };
+
+               const fullRegionDatabase = {
+                  "Netherlands": [
+                     "North Holland", "South Holland", "Utrecht", "Gelderland", "Noord-Brabant", "Overijssel", "Groningen", "Friesland", 
+                     "Zeeland", "Limburg", "Drenthe", "Flevoland"
+                  ],
+                  "Japan": [
+                     "Tokyo", "Osaka", "Kyoto", "Kanagawa", "Chiba", "Saitama", "Tochigi", "Gunma", "Shizuoka", "Aichi", "Mie", "Nara", "Hyogo",
+                     "Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata", "Fukushima", "Ibaraki", "Niigata", "Toyama", "Ishikawa", 
+                     "Fukui", "Yamanashi", "Nagano", "Gifu", "Shiga", "Tottori", "Shimane", "Okayama", "Hiroshima", "Yamaguchi", "Tokushima", 
+                     "Kagawa", "Ehime", "Kochi", "Fukuoka", "Saga", "Nagasaki", "Kumamoto", "Oita", "Miyazaki", "Kagoshima", "Okinawa"
+                  ],
+                  "Germany": ["Bavaria", "Berlin", "Hamburg", "Baden-Württemberg", "Bremen", "Hesse", "Lower Saxony", "Mecklenburg-Vorpommern", "North Rhine-Westphalia", "Rhineland-Palatinate", "Saarland", "Saxony", "Saxony-Anhalt", "Schleswig-Holstein", "Thuringia"],
+                  "China": ["Beijing", "Shanghai", "Guangdong", "Zhejiang", "Jiangsu", "Anhui", "Fujian", "Gansu", "Guizhou", "Hainan", "Hebei", "Heilongjiang", "Henan", "Hubei", "Hunan", "Jiangxi", "Jilin", "Liaoning", "Qinghai", "Shaanxi", "Shandong", "Shanxi", "Sichuan", "Yunnan"]
+               };
+
+               let totalProvinces = 0;
+               let visitedProvinces = 0;
+               const tableBody = document.getElementById('atlas-table-body');
+               
+               data.forEach(item => {
+                  totalProvinces += item.provinces;
+                  visitedProvinces += item.visited;
+
+                  // Country Header Row
+                  const row = document.createElement('tr');
+                  row.className = 'region-row';
+                  row.innerHTML = `
+                     <td>
+                        <div class="country-header">
+                           <span class="fold-icon">➤</span>
+                           ${item.country}
+                        </div>
+                     </td>
+                     <td>${item.provinces}</td>
+                     <td>${item.visited}</td>
+                     <td>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                           <div class="progress-bar-container">
+                              <div class="progress-bar-fill" style="width: ${item.percentage}"></div>
+                           </div>
+                           <span style="min-width: 60px;">${item.percentage}</span>
+                        </div>
+                     </td>
+                  `;
+                  
+                  // Detailed Regions Row
+                  const detailRow = document.createElement('tr');
+                  detailRow.className = 'regions-list-row';
+                  
+                  const visitedSet = new Set(item.visited_regions);
+                  const fullList = fullRegionDatabase[item.country] || item.visited_regions;
+                  
+                  // Sort: Visited first, then unfinished
+                  const sortedList = [...fullList].sort((a, b) => {
+                     const aVis = visitedSet.has(a);
+                     const bVis = visitedSet.has(b);
+                     if (aVis && !bVis) return -1;
+                     if (!aVis && bVis) return 1;
+                     return a.localeCompare(b);
+                  });
+
+                  const regionTags = sortedList.map(name => {
+                     const status = visitedSet.has(name) ? 'visited' : 'unfinished';
+                     return `<span class="region-tag ${status}">${name}</span>`;
+                  }).join('');
+
+                  detailRow.innerHTML = `
+                     <td colspan="4" style="padding: 0; border: none;">
+                        <div class="regions-list-container">
+                           <div style="margin-bottom: 5px; font-size: 11px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Expedition Log</div>
+                           ${regionTags}
+                        </div>
+                     </td>
+                  `;
+
+                  row.addEventListener('click', () => {
+                     row.classList.toggle('expanded');
+                     
+                     // Fly to country
+                     const country = countryData[item.country];
+                     if (country) {
+                        map.flyTo({
+                           center: country.center,
+                           zoom: country.zoom,
+                           essential: true,
+                           duration: 2000
+                        });
+                     }
+                  });
+
+                  tableBody.appendChild(row);
+                  tableBody.appendChild(detailRow);
+               });
+
+               document.getElementById('stat-countries').textContent = data.length;
+               document.getElementById('stat-provinces').textContent = visitedProvinces;
+               document.getElementById('stat-world-percent').textContent = ((data.length / 195) * 100).toFixed(1) + '%';
+               document.getElementById('stat-discovery').textContent = ((visitedProvinces / totalProvinces) * 100).toFixed(1) + '%';
+
+               // Prepare markers GeoJSON - All GREEN
+               const features = [];
+               data.forEach(item => {
+                  const color = '#00cc66'; // All dots green
+
+                  item.visited_regions.forEach(regionName => {
+                     const coords = regionCoordinates[regionName];
+                     if (coords) {
+                        features.push({
+                           type: 'Feature',
+                           geometry: {
+                              type: 'Point',
+                              coordinates: coords
+                           },
+                           properties: {
+                              country: item.country,
+                              region: regionName,
+                              color: color,
+                              zoom: countryData[item.country]?.zoom || 5
+                           }
+                        });
+                     }
+                  });
+               });
+
+               const markersGeoJSON = {
+                  type: 'FeatureCollection',
+                  features: features
+               };
+
+               const map = new maplibregl.Map({
+                  container: 'map',
+                  style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+                  center: [15, 30],
+                  zoom: 1.8,
+                  projection: 'globe'
+               });
+
+               const popup = new maplibregl.Popup({
+                  closeButton: false,
+                  closeOnClick: false,
+                  className: 'map-tooltip',
+                  offset: 15
+               });
+
+               map.on('load', () => {
+                  map.setPaintProperty('background', 'background-color', '#050505');
+
+                  map.addSource('pinpoints', {
+                     type: 'geojson',
+                     data: markersGeoJSON
+                  });
+
+                  map.addLayer({
+                     'id': 'pinpoints-pulse',
+                     'type': 'circle',
+                     'source': 'pinpoints',
+                     'paint': {
+                        'circle-radius': ['interpolate', ['linear'], ['zoom'], 1, 6, 10, 20],
+                        'circle-color': ['get', 'color'],
+                        'circle-opacity': 0.15,
+                        'circle-stroke-width': 1,
+                        'circle-stroke-color': ['get', 'color']
+                     }
+                  });
+
+                  map.addLayer({
+                     'id': 'pinpoints-main',
+                     'type': 'circle',
+                     'source': 'pinpoints',
+                     'paint': {
+                        'circle-radius': ['interpolate', ['linear'], ['zoom'], 1, 3, 10, 8],
+                        'circle-color': ['get', 'color'],
+                        'circle-stroke-width': 1.5,
+                        'circle-stroke-color': '#fff'
+                     }
+                  });
+
+                  map.on('mouseenter', 'pinpoints-main', (e) => {
+                     map.getCanvas().style.cursor = 'pointer';
+                     const props = e.features[0].properties;
+                     
+                     popup.setLngLat(e.features[0].geometry.coordinates)
+                        .setHTML(`
+                           <div style="color: var(--primary-color); font-weight: bold; font-size: 16px; margin-bottom: 2px;">${props.region}</div>
+                           <div style="opacity: 0.8; font-size: 11px; margin-bottom: 5px;">${props.country}</div>
+                           <div style="font-size: 12px; color: #aaa; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 5px;">
+                              Region Charted
+                           </div>
+                        `)
+                        .addTo(map);
+                  });
+
+                  map.on('mouseleave', 'pinpoints-main', () => {
+                     map.getCanvas().style.cursor = '';
+                     popup.remove();
+                  });
+
+                  map.on('click', 'pinpoints-main', (e) => {
+                     const props = e.features[0].properties;
+                     map.flyTo({
+                        center: e.features[0].geometry.coordinates,
+                        zoom: props.zoom + 2,
+                        essential: true,
+                        duration: 1500
+                     });
+                  });
+               });
+
+            } catch (error) {
+               console.error('Error loading atlas data:', error);
+            }
+         });
+      </script>
+   </body>
+</html>
