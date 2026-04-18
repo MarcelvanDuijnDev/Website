@@ -279,17 +279,7 @@
       
       <main>
          <section id="map-section" style="margin-top: var(--spacing-md);">
-            <div id="map">
-               <div class="map-overlay" id="map-overlay">
-                  <strong>PINPOINT MODE</strong><br>
-                  Zoom in for Precision
-               </div>
-               <div class="legend" id="legend">
-                  <div class="legend-item"><div class="legend-color" style="background: #00cc66;"></div> High Completion (>50%)</div>
-                  <div class="legend-item"><div class="legend-color" style="background: #ffcc00;"></div> Medium Completion (15-50%)</div>
-                  <div class="legend-item"><div class="legend-color" style="background: #ff4b2b;"></div> Exploration Phase (<15%)</div>
-               </div>
-            </div>
+            <div id="map"></div>
          </section>
 
          <section id="stats-section">
@@ -321,8 +311,8 @@
                   <thead>
                      <tr>
                         <th>Country</th>
-                        <th>Provinces</th>
                         <th>Visited</th>
+                        <th>Provinces</th>
                         <th>Completion</th>
                      </tr>
                   </thead>
@@ -419,8 +409,8 @@
                            ${item.country}
                         </div>
                      </td>
-                     <td>${item.provinces}</td>
                      <td>${item.visited}</td>
+                     <td>${item.provinces}</td>
                      <td>
                         <div style="display: flex; align-items: center; gap: 10px;">
                            <div class="progress-bar-container">
