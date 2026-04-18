@@ -62,9 +62,9 @@
         "visited": 3,
         "percentage": "18.75%",
         "visited_regions": [
-            "Bavaria",
-            "Berlin",
-            "Hamburg"
+            "Lower Saxony",
+            "North Rhine-Westphalia",
+            "Rhineland-Palatinate"
         ]
     },
     {
@@ -99,7 +99,7 @@
         "visited": 1,
         "percentage": "14.29%",
         "visited_regions": [
-            "Andorra la Vella"
+            "Encamp"
         ]
     },
     {
@@ -135,7 +135,7 @@
         "visited": 1,
         "percentage": "7.69%",
         "visited_regions": [
-            "\u00c3\u017dle-de-France"
+            "Occitanie"
         ]
     }
 ]
