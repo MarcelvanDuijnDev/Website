@@ -181,17 +181,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
-    // Add service worker registration for offline functionality
+    // Clean up the legacy no-op service worker from earlier deployments
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then(registration => {
-                    console.log('SW registered: ', registration);
-                })
-                .catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-        });
+        navigator.serviceWorker.getRegistrations()
+            .then(regs => regs.forEach(reg => reg.unregister()))
+            .catch(() => {});
     }
     
     // Add error handling for images
