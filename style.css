@@ -338,6 +338,24 @@ a:focus {
     margin-bottom: var(--spacing-lg);
 }
 
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+.selection-grid .content-container-selection {
+    margin-bottom: 0;
+}
+
+.selection-grid .content-container-selection a,
+.selection-grid .terminal-container-selection {
+    height: 100%;
+}
+
 .terminal-container-selection {
     background-color: var(--background-light);
     border: 1px solid var(--border-color);
